@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.container {
+    padding: 0;
+}
+
+.span-green {
+    color: #11742C;
+    font-weight: bold;
+}
+
+.jumbotron {
+    padding: 1rem;
+}
+
+.maindiv {
+    padding: 1rem;
+}
+
+.table th, .table td {
+    padding: 0.1rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+tr {
+    max-height: 35px !important;
+    height: 35px !important;
+    overflow:hidden;
+ }

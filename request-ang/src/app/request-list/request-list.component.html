@@ -1,0 +1,28 @@
+<div class="maindiv">
+  <div class="row">
+    <table class="table table-striped table-hover table-bordered table-dark">
+      <thead class="thead-dark">
+      <tr>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let req of requestData">
+        <td>{{req.category}}</td>
+        <td>{{req.description}}</td>
+        <td>
+          <div *ngIf="req.status == 'Pending'">
+            <button (click)="approveRequest(req)" class="btn btn-success btn-sm"><i class="fa fa-thumbs-up"></i> Approve</button>&nbsp;
+            <button (click)="rejectRequest(req)" class="btn btn-danger btn-sm"><i class="fa fa-thumbs-down"></i> Reject</button>
+          </div>
+          <div *ngIf="req.status !== 'Pending'">
+            {{req.status}}
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

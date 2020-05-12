@@ -1,0 +1,51 @@
+version: '3'
+
+services: 
+    docker-postgres:
+        image: "postgres:9.6-alpine"
+        container_name: docker-postgres
+        volumes: 
+            - db-data:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
+        environment: 
+            - POSTGRES_DB=request_db
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        networks: 
+            - devops_requestapp
+        
+    request-java:
+        build: 
+            context: request-tracker
+            dockerfile: Dockerfile
+        container_name: request-java
+        environment: 
+            - DB_SERVER=docker-postgres
+            - POSTGRES_DB=request_db
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        ports: 
+            - 8090:8090
+        links: 
+            - docker-postgres
+        networks: 
+            - devops_requestapp
+
+    request-ui:
+        build:
+            context: request-ang
+            dockerfile: Dockerfile
+        container_name: request-ui
+        ports: 
+            - "4545:80"
+        links: 
+            - request-java
+        networks: 
+            - devops_requestapp
+
+volumes: 
+    db-data: 
+networks: 
+    devops_requestapp:
+        driver: bridge
