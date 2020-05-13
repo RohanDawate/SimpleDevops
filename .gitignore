@@ -43,7 +43,7 @@ yarn-error.log
 .notes.md
 baseline.json
 
-/target/
+#/target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
