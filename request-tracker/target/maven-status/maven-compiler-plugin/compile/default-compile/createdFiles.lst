@@ -1,7 +1,0 @@
-com\example\jpa\exception\ErrorDetails.class
-com\example\jpa\controller\RequestController.class
-com\example\jpa\model\Request.class
-com\example\jpa\repository\RequestRepository.class
-com\example\jpa\exception\GlobalExceptionHandler.class
-com\example\jpa\exception\ResourceNotFoundException.class
-com\example\jpa\RequestTrackerApplication.class
