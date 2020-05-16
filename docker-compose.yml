@@ -31,6 +31,7 @@ services:
             - docker-postgres
         networks: 
             - devops_requestapp
+        image: rohandawate/simpledevops_java:latest
 
     request-ui:
         build:
@@ -43,6 +44,7 @@ services:
             - request-java
         networks: 
             - devops_requestapp
+        image: rohandawate/simpledevops_ang:latest
 
 volumes: 
     db-data: 
